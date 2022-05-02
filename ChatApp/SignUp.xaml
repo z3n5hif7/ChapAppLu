@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:ChatApp"
+             x:Class="ChatApp.SignUp">
+
+    <StackLayout Spacing="11">
+        <Image x:Name="logo" Source="Logo" WidthRequest="320" Aspect="AspectFill"/>
+        <local:CustomEntry x:Name="Username" Placeholder="Username" WidthRequest="380" HorizontalOptions="Center" Keyboard="Email"/>
+        <local:CustomEntry x:Name="Email" Placeholder="Email" WidthRequest="380" HorizontalOptions="Center" Keyboard="Email"/>
+        <local:CustomEntry x:Name="Password" Placeholder="Password" IsPassword="True" WidthRequest="380" HorizontalOptions="Center"/>
+        <local:CustomEntry x:Name="ConfirmPassword" Placeholder="Confirm Password" IsPassword="True" WidthRequest="380" HorizontalOptions="Center"/>
+
+        <local:CustomButton Text="Sign up" Clicked="SignUpClicked" WidthRequest="380" HorizontalOptions="Center" BackgroundColor="#90EE90" CornerRadius="5"/>
+        <local:CustomButton Text="Sign in to your account" Clicked="SignInClicked" WidthRequest="380" HorizontalOptions="Center" Background="#d3d3d3" CornerRadius="5"/>
+
+        <local:CustomButton x:Name="VisibleConfirmPassword" Clicked="ShowConfirmPassword" Text="Show" BackgroundColor="#D3D3D3" HorizontalOptions="Center" FontSize="12" CornerRadius="10" WidthRequest="55" HeightRequest="35">
+            <Button.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="0,-169,-300,0" />
+                    <On Platform="iOS" Value="0,-169,-300,0" />
+                </OnPlatform>
+                <!---0,102.5,-300,0-->
+            </Button.Margin>
+        </local:CustomButton>
+
+        <local:CustomButton x:Name="VisiblePassword" Clicked ="ShowPassword" Text="Show" BackgroundColor="#D3D3D3" HorizontalOptions="Center" FontSize="12" CornerRadius="10" WidthRequest="55" HeightRequest="35">
+            <Button.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="-0,-102.5,-300,0" />
+                    <On Platform="iOS" Value="0,-169,-300,0" />
+                </OnPlatform>
+            </Button.Margin>
+        </local:CustomButton>
+        <Label Text=""/>
+        <Label Text=""/>
+        <Label Text=""/>
+        <Label Text=""/>
+        <Label Text=""/>
+        <Label Text=""/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Grid.Column="0" Source="GoogleSignIn"   BorderColor="Gray" BorderWidth="1"  CornerRadius="5" HorizontalOptions="Center" WidthRequest="175"  HeightRequest="30"  />
+            <ImageButton Grid.Column="1" Source="FacebookSignIn" BorderColor="Gray" BorderWidth="1" CornerRadius="5" HorizontalOptions="Center" WidthRequest="175" HeightRequest="30" />
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

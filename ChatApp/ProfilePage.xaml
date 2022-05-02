@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:ChatApp"
+             x:Class="ChatApp.ProfilePage"
+             Title="ProfilePage"
+             x:Name="profilePage"
+             >
+
+    <StackLayout>
+        <!--<RelativeLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">-->
+        <RelativeLayout  HorizontalOptions="Center"  >
+            <Frame Padding="0" CornerRadius="200">
+                <Image Source="UserIcon" HeightRequest="132" WidthRequest="132" Aspect="AspectFill"></Image>
+            </Frame>
+            <Ellipse Stroke="#5FAEFD" StrokeThickness="5" FlexLayout.AlignSelf="Auto" WidthRequest="140" HeightRequest="140"  Aspect="Fill"/>
+            <Ellipse Stroke="#1C86EE" StrokeThickness="5" FlexLayout.AlignSelf="Auto" WidthRequest="150" HeightRequest="150" Aspect="Fill"/>
+        </RelativeLayout>
+            <Label TextColor="#757575" HorizontalOptions="CenterAndExpand"  FontAttributes="Bold" FontSize="20" BindingContext="{x:Reference Name=profilePage}" Text="{Binding Username}"/>
+            <Label TextColor="#757575" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="20" BindingContext="{x:Reference Name=profilePage}" Text="{Binding Email}"/>
+
+        <RelativeLayout HorizontalOptions="Center">
+            <local:CustomButton Text="Sign out" Clicked="SignOut" WidthRequest="380" Background="#d6d7d7" CornerRadius="5"/>
+        </RelativeLayout>
+
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <Image Source="UserIcon" Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="132" WidthRequest="132" Aspect="AspectFill"></Image>-->
+
+
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:ChatApp"
+             x:Class="ChatApp.ContactFound"
+             Title="ContactFound"
+             x:Name="contactFound"
+             >
+    <StackLayout>
+        <ImageButton Source="Exit"  WidthRequest="30" HorizontalOptions="End" Clicked="ExitClicked"/>
+        <Frame BorderColor="#a0c8d5" CornerRadius="5"  HasShadow="false" Margin="10" >
+            <StackLayout>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AddUser"/>
+                </StackLayout.GestureRecognizers>
+                <Label x:Name="ContactUsername"  TextColor="#757575" FontSize="30" HorizontalOptions="Start" BindingContext="{x:Reference Name=contactFound}" Text="{Binding Username}"/>
+                <Label x:Name="ContactEmail" TextColor="#757575" FontSize="20" HorizontalOptions="Start" BindingContext="{x:Reference Name=contactFound}" Text="{Binding Email}"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

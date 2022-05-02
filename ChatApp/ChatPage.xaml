@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:ChatApp" x:DataType="local:ContactModel"
+             x:Class="ChatApp.ChatPage">
+
+    <StackLayout Spacing="0">
+        <Label Text=" " HeightRequest="6"></Label>
+        <local:CustomEntry x:Name="Email" Placeholder="Search user email" WidthRequest="380" HorizontalOptions="Center" TextChanged="CheckInput" Completed="Email_Completed" Keyboard="Email"/>
+        <local:CustomButton x:Name="Visible" Clicked="Clear"  Text="X" BackgroundColor="#D3D3D3" HorizontalOptions="Center" FontSize="12" CornerRadius="10" WidthRequest="55" HeightRequest="35" >
+            <Button.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android" Value="0,-40,-300,0"/>
+                    <On Platform="iOS" Value="0,-40,-300,0" />
+                </OnPlatform>
+            </Button.Margin>
+        </local:CustomButton>
+        <Label x:Name="NoContactsMessage" Text="You have no contacts as of the moment." HeightRequest="100" WidthRequest="300" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" TextColor="Black" FontSize="20" IsVisible="true"/>
+        <!--<ListView x:Name="ContactListView" SelectionMode = "None" HorizontalOptions="Fill" VerticalOptions="Fill" SeparatorVisibility="None" HasUnevenRows="true" SelectedItem="{Binding username}" ItemsSource="{Binding AllItems}}" ItemTapped="GoToConversationPage">-->
+        <ListView x:Name="ContactListView" SelectionMode = "None" HorizontalOptions="Fill" VerticalOptions="Fill" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding ContactsList }" ItemTapped="GoToConversationPage" SelectedItem="{Binding ContactsList}">
+            <!--<ListView.Header>
+                <Label Text="List starts here..." TextColor="Black" HorizontalOptions="Fill">
+                    
+                </Label>
+            </ListView.Header>-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>  
+                        <!--<Label Text="{Binding username}" ClassId="{Binding id}" HorizontalOptions="FillAndExpand" IsEnabled="true" VerticalOptions="FillAndExpand" Margin="5"></Label>-->
+                        <Frame BorderColor="#85dc85" CornerRadius="5"  HasShadow="false" Margin="10">
+                            <StackLayout>
+                                <!--<StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GoToConversationPage" />
+                                </StackLayout.GestureRecognizers>-->
+                                <Label TextColor="#757575" FontSize="20" HorizontalOptions="Start" Text="{Binding .}" />
+                                <Label TextColor="#757575" FontSize="15" HorizontalOptions="Start" Text="{Binding .}"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                    
+                </DataTemplate>
+                
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
